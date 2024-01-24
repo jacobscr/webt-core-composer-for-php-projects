@@ -1,0 +1,16 @@
+{
+    "name": "jacob/webt-core-composer-for-php-projects",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Jacob\\WebtCoreComposerForPhpProjects\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jacob Schrott",
+            "email": "0062@htl.rennweg.at"
+        }
+    ],
+    "require": {}
+}
