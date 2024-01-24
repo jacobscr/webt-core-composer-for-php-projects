@@ -6,9 +6,17 @@ use Endroid\QrCode\Encoding\Encoding;
 use Endroid\QrCode\Writer\PngWriter;
 
 class QRcode {
-    public $result = Builder::create()
-        ->writer(new PngWriter())
-        ->data('Custom QR code contents')
-        ->encoding(new Encoding('UTF-8'))
-        ->build();
+    public string $data;
+    public function __construct(string $data) {
+        $this->data = $data;
+    }
+    public function generate() {
+        $result = Builder::create()
+            ->writer(new PngWriter())
+            ->data($this->data)
+            ->encoding(new Encoding('UTF-8'))
+            ->build();
+        $dataUri = $result->getDataUri();
+        return $dataUri;
+    }
 }
