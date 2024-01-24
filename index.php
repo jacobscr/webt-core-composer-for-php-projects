@@ -8,11 +8,11 @@ $dataUri = '';
 
 // Überprüfe, ob das Formular gesendet wurde
 if (isset($_POST['generateQR'])) {
-    $qrCodeData = isset($_POST['qrCodeData']) ? $_POST['qrCodeData'] : '';
+    $qrCodeData =  $_POST['qrCodeData'];
 
     // Nur QR-Code generieren, wenn Daten vorhanden sind
     if (!empty($qrCodeData)) {
-        $QRcode = new QRcode($qrCodeData);
+        $QRcode = new QRcode('tel:' . $qrCodeData);
         $dataUri = $QRcode->generate();
     }
 }
@@ -31,8 +31,8 @@ if (isset($_POST['generateQR'])) {
     <!-- Eingabefeld für den QR-Code-Inhalt -->
     <form method="POST" class="mb-4">
         <div class="mb-4">
-            <label for="qrCodeData" class="block text-gray-700 text-sm font-bold mb-2">QR-Code-Inhalt:</label>
-            <input type="text" name="qrCodeData" id="qrCodeData" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <label for="qrCodeData" class="block text-gray-700 text-sm font-bold mb-2">Telefonnummer eingeben:</label>
+            <input type="number" name="qrCodeData" id="qrCodeData" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
         <div class="flex justify-center items-center">
             <button type="submit" name="generateQR" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">QR-Code generieren</button>
