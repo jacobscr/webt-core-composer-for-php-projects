@@ -12,5 +12,7 @@
             "email": "0062@htl.rennweg.at"
         }
     ],
-    "require": {}
+    "require": {
+        "endroid/qr-code": "^5.0"
+    }
 }
