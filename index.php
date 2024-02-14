@@ -1,24 +1,24 @@
 <?php
-require_once 'vendor/autoload.php';
-use Jacob\WebtCoreComposerForPhpProjects\QRcode;
+    require_once 'vendor/autoload.php';
+    use Jacob\WebtCoreComposerForPhpProjects\QRcode;
 
-// Initialisiere die QR-Code-Daten und die Data URI
-$qrCodeData = '';
-$dataUri = '';
+    // Initialisiere die QR-Code-Daten und die Data URI
+    $qrCodeData = '';
+    $dataUri = '';
 
-// Überprüfe, ob das Formular gesendet wurde
-if (isset($_POST['generateQR'])) {
-    $qrCodeData =  $_POST['qrCodeData'];
+    // Überprüfe, ob das Formular gesendet wurde
+    if (isset($_POST['generateQR'])) {
+        $qrCodeData =  $_POST['qrCodeData'];
 
-    // Nur QR-Code generieren, wenn Daten vorhanden sind
-    if (!empty($qrCodeData)) {
-        $QRcode = new QRcode('tel:' . $qrCodeData);
-        $dataUri = $QRcode->generate();
+        // Nur QR-Code generieren, wenn Daten vorhanden sind
+        if (!empty($qrCodeData)) {
+            $QRcode = new QRcode('tel:' . $qrCodeData);
+            $dataUri = $QRcode->generate();
+        }
     }
-}
 ?>
 
-<html>
+<html lang="de">
 <head>
     <title>QR Code Generator</title>
     <meta charset="UTF-8">
@@ -41,7 +41,7 @@ if (isset($_POST['generateQR'])) {
     
     <!-- Zeige den QR-Code an, wenn er generiert wurde -->
     <?php if (!empty($dataUri)) : ?>
-        <img src="<?= $dataUri ?>" class="mx-auto">
+        <img src="<?= $dataUri ?>" class="mx-auto" alt="QR-Code">
     <?php endif; ?>
 </body>
 </html>

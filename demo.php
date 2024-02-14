@@ -4,6 +4,7 @@ use Jacob\WebtCoreComposerForPhpProjects\QRcode;
 
 $qr = new QRcode('tel: +43 1 22 33 444');
 $dataUri = $qr->generate();
+
 ?>
 <html>
 <head>
